@@ -1,14 +1,16 @@
 
 local lsp = require('lsp-zero')
+local lsp_config = require('lspconfig')
+
 lsp.preset('recommended')
 
 lsp.ensure_installed({
 	'tsserver',
-	'sumneko_lua',
+	'lua_ls',
 	'gopls'
 })
 -- Fix Undefined global 'vim'
-lsp.configure('sumneko_lua', {
+lsp.configure('lua_ls', {
     settings = {
         Lua = {
             diagnostics = {
@@ -17,6 +19,13 @@ lsp.configure('sumneko_lua', {
         }
     }
 })
+
+lsp_config.clangd.setup({
+    cmd = {
+        '--query-driver=/usr/bin/g++'
+    }
+})
+
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}

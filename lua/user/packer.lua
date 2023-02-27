@@ -12,11 +12,6 @@ return require('packer').startup(function(use)
     }
 
 
-    use({
-        "aserowy/tmux.nvim",
-        config = function() require("tmux").setup() end
-    })
-
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
@@ -43,6 +38,7 @@ return require('packer').startup(function(use)
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use { "mbbill/undotree" }
     use { "tpope/vim-fugitive" }
-    use { "alexghergh/nvim-tmux-navigation" }
+    use { "theprimeagen/harpoon" }
+    use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup {} end }
 
 end)

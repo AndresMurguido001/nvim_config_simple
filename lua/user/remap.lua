@@ -1,4 +1,6 @@
 vim.g.mapleader = " "
+
+local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("i", "jk", "<esc>")
 
@@ -46,4 +48,26 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- change to executable and execute
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
+-- Buffer navigation
+-- For the <C-h> option, need to use ^H for some reason because <C-h> outputs ^H
+-- 
+vim.keymap.set("n", "^H", "<C-w>h", opts)
+vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
+vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
+vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
+vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
 
+-- Resize window
+vim.keymap.set("n", "<M-k>", ":resize -2<CR>", opts)
+vim.keymap.set("n", "<M-j>", ":resize +2<CR>", opts)
+vim.keymap.set("n", "<M-h>", ":vertical resize -2<CR>", opts)
+vim.keymap.set("n", "<M-l>", ":vertical resize +2<CR>", opts)
+
+-- Terminal stuff
+vim.keymap.set("n", "<C-x>", ":vsplit term://zsh<CR>")
+
+-- Tab navigation
+vim.keymap.set("n", "<A-,>", ":tabprevious<CR>")
+vim.keymap.set("n", "<A-.>", ":tabNext<CR>")
+-- function for opening project in tab?
+--vim.keymap.set("n", "<A-n>", ":tabPrevious<CR>")

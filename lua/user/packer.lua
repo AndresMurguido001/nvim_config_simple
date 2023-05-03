@@ -47,5 +47,13 @@ return require('packer').startup(function(use)
     use { "tpope/vim-fugitive" }
     use { "theprimeagen/harpoon" }
     use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup {} end }
+    use {
+        "folke/trouble.nvim",
+        requires = "nvim-tree/nvim-web-devicons"
+    }
+    use {
+        "jose-elias-alvarez/null-ls.nvim",
+        requires = {'nvim-lua/plenary.nvim'}
+    }
 
 end)

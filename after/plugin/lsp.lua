@@ -19,10 +19,14 @@ lsp.configure('lua_ls', {
     }
 })
 
+local capabilities = vim.lsp.protocol.make_client_capabilities();
+capabilities.offsetEncoding = { "utf-16" }
 lsp_config.clangd.setup({
+    capabilities = capabilities,
     cmd = {
-        '--query-driver=/usr/bin/g++'
+        '--query-driver=/usr/bin/g++',
     }
+
 })
 
 

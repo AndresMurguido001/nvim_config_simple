@@ -3,6 +3,8 @@ local builtin = require('telescope.builtin')
 
 -- Project files (All file search)
 vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
+-- Search buffers
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 -- Git File search
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 -- Project search

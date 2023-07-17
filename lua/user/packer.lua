@@ -51,9 +51,15 @@ return require('packer').startup(function(use)
         "folke/trouble.nvim",
         requires = "nvim-tree/nvim-web-devicons"
     }
+    --use {
+    --    "jose-elias-alvarez/null-ls.nvim",
+    --    requires = {'nvim-lua/plenary.nvim'}
+    --}
+
     use {
-        "jose-elias-alvarez/null-ls.nvim",
-        requires = {'nvim-lua/plenary.nvim'}
+        'ggandor/leap.nvim',
+        requires = {'tpope/vim-repeat'}
     }
+    use {'mfussenegger/nvim-dap'}
 
 end)
